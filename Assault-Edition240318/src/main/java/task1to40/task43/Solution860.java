@@ -1,4 +1,4 @@
-package task43;
+package task1to40.task43;
 
 /**
  * 860. 柠檬水找零

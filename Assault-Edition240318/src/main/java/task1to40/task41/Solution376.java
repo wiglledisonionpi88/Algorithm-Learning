@@ -1,4 +1,4 @@
-package task41;
+package task1to40.task41;
 
 /**
  * 376. 摆动序列

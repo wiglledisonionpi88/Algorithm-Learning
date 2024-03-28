@@ -1,4 +1,4 @@
-package task42;
+package task1to40.task42;
 
 /**
  * 135. 分发糖果
