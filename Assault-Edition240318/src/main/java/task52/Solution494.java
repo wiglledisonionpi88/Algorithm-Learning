@@ -29,12 +29,12 @@ public class Solution494 {
     }
 
     public static void main(String[] args) {
-        // // 输入：nums = [1,1,1,1,1], target = 3
-        // // 输出：5
-        // int res = new Solution494().findTargetSumWays(new int[]{1, 1, 1, 1, 1}, 3);
-        // System.out.println(res);
-
-        int res = new Solution494().findTargetSumWays(new int[]{7, 9, 3, 8, 0, 2, 4, 8, 3, 9}, 0);
+        // 输入：nums = [1,1,1,1,1], target = 3
+        // 输出：5
+        int res = new Solution494().findTargetSumWays(new int[]{1, 1, 1, 1, 1}, 3);
         System.out.println(res);
+
+        // int res = new Solution494().findTargetSumWays(new int[]{7, 9, 3, 8, 0, 2, 4, 8, 3, 9}, 0);
+        // System.out.println(res);
     }
 }

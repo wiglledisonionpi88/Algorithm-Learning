@@ -47,4 +47,9 @@ public class Solution122 {
         }
         return res;
     }
+
+    public static void main(String[] args) {
+        int res = new Solution122().maxProfit2(new int[]{7, 1, 5, 3, 6, 4});
+        System.out.println(res);
+    }
 }
