@@ -11,6 +11,7 @@
         <module>Assault-Edition240318</module>
         <module>DailyTask</module>
         <module>Array</module>
+        <module>LinkedList</module>
     </modules>
     <groupId>com.lingfenglong</groupId>
     <artifactId>Algorithm-Learning</artifactId>
