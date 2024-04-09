@@ -12,6 +12,7 @@
         <module>DailyTask</module>
         <module>Array</module>
         <module>LinkedList</module>
+        <module>HashTable</module>
     </modules>
     <groupId>com.lingfenglong</groupId>
     <artifactId>Algorithm-Learning</artifactId>
