@@ -1,34 +1,58 @@
 package task7;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 15. 三数之和
  */
 public class Solution15 {
-    public List<List<Integer>> threeSum(int[] nums) {
+    public List<List<Integer>> threeSum1(int[] nums) {
         ArrayList<List<Integer>> res = new ArrayList<>();
-        Map<Integer, int[]> map = new HashMap<>();
+        int left, right, sum;
+        Arrays.sort(nums);
 
         for (int i = 0; i < nums.length; i++) {
-            for (int j = 1; j < nums.length; j++) {
-                map.put(nums[i] + nums[j], new int[]{i, j});
+            if (nums[i] > 0) {
+                return res;
+            }
+
+            /*
+             已经使用过了 nums[i]
+             if (nums[i] == nums[i + 1]) 是错误的，因为三元组内的元素是可以重复的
+             */
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+
+            left = i + 1;
+            right = nums.length - 1;
+
+            while (left < right) {
+                sum = nums[i] + nums[left] + nums[right];
+                if (sum > 0) {
+                    right--;
+                } else if (sum < 0) {
+                    left++;
+                } else {
+                    res.add(Arrays.asList(nums[i], nums[left], nums[right]));
+
+                    /*
+                    nums[left] nums[right]去重
+                     */
+                    while (left < right && nums[left] == nums[left - 1]) left++;
+                    while (left < right && nums[right] == nums[right + 1]) right--;
+
+                    right--;
+                    left++;
+                }
             }
         }
 
-        for (int i = 0; i < nums.length; i++) {
-            int[] indexes = map.get(-nums[i]);
-            if (indexes != null && indexes[0] != i && indexes[1] != i) {
-                ArrayList<Integer> list = new ArrayList<>();
-                list.add(nums[i]);
-                list.add(nums[indexes[0]]);
-                list.add(nums[indexes[1]]);
-                res.add(list);
-            }
-        }
         return res;
+    }
+
+    public static void main(String[] args) {
+        List<List<Integer>> lists = new Solution15().threeSum1(new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
+        lists.forEach(System.out::println);
     }
 }
