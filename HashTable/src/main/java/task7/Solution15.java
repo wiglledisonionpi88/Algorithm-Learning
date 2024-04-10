@@ -6,7 +6,7 @@ import java.util.*;
  * 15. 三数之和
  */
 public class Solution15 {
-    public List<List<Integer>> threeSum1(int[] nums) {
+    public List<List<Integer>> threeSum(int[] nums) {
         ArrayList<List<Integer>> res = new ArrayList<>();
         int left, right, sum;
         Arrays.sort(nums);
@@ -39,8 +39,8 @@ public class Solution15 {
                     /*
                     nums[left] nums[right]去重
                      */
-                    while (left < right && nums[left] == nums[left - 1]) left++;
-                    while (left < right && nums[right] == nums[right + 1]) right--;
+                    while (left < right && nums[left] == nums[left + 1]) left++;
+                    while (left < right && nums[right] == nums[right - 1]) right--;
 
                     right--;
                     left++;
@@ -52,7 +52,7 @@ public class Solution15 {
     }
 
     public static void main(String[] args) {
-        List<List<Integer>> lists = new Solution15().threeSum1(new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
+        List<List<Integer>> lists = new Solution15().threeSum(new int[]{-1,0,1,2,-1,-4});
         lists.forEach(System.out::println);
     }
 }
