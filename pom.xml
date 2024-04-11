@@ -13,6 +13,7 @@
         <module>Array</module>
         <module>LinkedList</module>
         <module>HashTable</module>
+        <module>String</module>
     </modules>
     <groupId>com.lingfenglong</groupId>
     <artifactId>Algorithm-Learning</artifactId>

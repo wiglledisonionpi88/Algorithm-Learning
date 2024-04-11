@@ -35,7 +35,6 @@ public class Solution15 {
                     left++;
                 } else {
                     res.add(Arrays.asList(nums[i], nums[left], nums[right]));
-
                     /*
                     nums[left] nums[right]去重
                      */
