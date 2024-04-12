@@ -14,6 +14,7 @@
         <module>LinkedList</module>
         <module>HashTable</module>
         <module>String</module>
+        <module>StackAndQueue</module>
     </modules>
     <groupId>com.lingfenglong</groupId>
     <artifactId>Algorithm-Learning</artifactId>
