@@ -15,6 +15,20 @@ public class Solution1047 {
         int top = 1;
         char[] chars = s.toCharArray();
         for (int i = 1; i < chars.length; i++) {
+            if (top == 0 || chars[top - 1] != chars[i]) {
+                chars[top++] = chars[i];
+            } else {
+                // top != 0 && chars[top - 1] == chars[i]
+                top--;
+            }
+        }
+        return new String(chars, 0, top);
+    }
+
+    public String removeDuplicates2(String s) {
+        int top = 1;
+        char[] chars = s.toCharArray();
+        for (int i = 1; i < chars.length; i++) {
             if (top == 0) {
                 chars[top++] = chars[i];
             } else if (chars[top - 1] == chars[i]) {
