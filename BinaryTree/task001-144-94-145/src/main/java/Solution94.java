@@ -1,6 +1,7 @@
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * ⼆叉树的中序遍历
@@ -87,6 +88,37 @@ public class Solution94 {
             } else {
                 stack.pop();
                 res.add(((TreeNode) stack.pop()).val);
+            }
+        }
+
+        return res;
+    }
+
+    /**
+     * 使用 Stack 可以存 null
+     */
+    public List<Integer> inorderTraversal3(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) return res;
+
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            if (node != null) {
+                if (node.right != null) {
+                    stack.push(node.right);
+                }
+
+                stack.push(node);
+                stack.push(null);
+
+                if (node.left != null) {
+                    stack.push(node.left);
+                }
+            } else {
+                node = stack.pop();
+                res.add(node.val);
             }
         }
 

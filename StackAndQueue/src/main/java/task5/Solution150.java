@@ -39,7 +39,7 @@ public class Solution150 {
                     stack.push(b / a);
                     break;
                 default:
-                    stack.push(Integer.valueOf(Integer.parseInt(token)));
+                    stack.push(Integer.parseInt(token));
             }
         }
 

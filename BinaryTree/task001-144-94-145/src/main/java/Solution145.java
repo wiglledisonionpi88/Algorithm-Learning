@@ -76,4 +76,36 @@ public class Solution145 {
 
         return res;
     }
+
+
+    /**
+     * 使用 Stack 可以存 null
+     */
+    public List<Integer> postorderTraversal3(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) return res;
+
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            if (node != null) {
+                stack.push(node);
+                stack.push(null);
+
+                if (node.right != null) {
+                    stack.push(node.right);
+                }
+
+                if (node.left != null) {
+                    stack.push(node.left);
+                }
+            } else {
+                node = stack.pop();
+                res.add(node.val);
+            }
+        }
+
+        return res;
+    }
 }
