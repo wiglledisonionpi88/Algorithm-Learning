@@ -59,4 +59,33 @@ public class Solution222 {
             return 1 + countNodes(root.left) + countNodes(root.right);
         }
     }
+
+
+    public int countNodes3(TreeNode root) {
+        if (root == null) return 0;
+        int leftDepth = 0, rightDepth = 0;
+        TreeNode left = root, right = root;
+
+        while (left != null) {
+            leftDepth++;
+            left = left.left;
+        }
+
+        while (right != null) {
+            rightDepth++;
+            right = right.right;
+        }
+
+        if (leftDepth == rightDepth) {
+            return (2 << leftDepth) - 1;
+        } else {
+            return countNodes(root.left) + countNodes(root.right) + 1;
+        }
+    }
+
+    public static void main(String[] args) {
+        int res = new Solution222().countNodes3(new TreeNode(1));
+        System.out.println(res);
+
+    }
 }
