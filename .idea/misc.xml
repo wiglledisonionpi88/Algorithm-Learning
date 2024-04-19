@@ -9,6 +9,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/BinaryTree/task654.Solution654/pom.xml" />
         <option value="$PROJECT_DIR$/TwoPointers/pom.xml" />
       </set>
     </option>
