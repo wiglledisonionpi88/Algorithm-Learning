@@ -47,7 +47,7 @@ public class Solution257 {
         }
     }
 
-    public List<String> binaryTreePaths(TreeNode root) {
+    public List<String> binaryTreePaths2(TreeNode root) {
         if (root == null) return new ArrayList<>();
 
         ArrayList<String> res = new ArrayList<>();
@@ -75,6 +75,35 @@ public class Solution257 {
         }
 
         return res;
+    }
+
+
+    List<String> res = new ArrayList<>();
+    List<Integer> path = new ArrayList<>();
+    public List<String> binaryTreePaths(TreeNode root) {
+        helper(root);
+        return res;
+    }
+
+    private void helper(TreeNode root) {
+        if (root == null) return;
+        if (root.left == null && root.right == null) {
+            // the end
+            StringBuilder s = new StringBuilder();
+            for (Integer integer : path) {
+                s.append(integer).append("->");
+            }
+            s.append(root.val);
+            res.add(s.toString());
+            return;
+        }
+
+        path.add(root.val);
+
+        helper(root.left);
+        helper(root.right);
+
+        path.remove(path.size() - 1);
     }
 
     public static void main(String[] args) {

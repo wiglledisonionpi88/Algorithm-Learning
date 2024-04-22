@@ -9,7 +9,7 @@ public class Solution236 {
     List<List<TreeNode>> paths = new ArrayList<>();
     List<TreeNode> path = new ArrayList<>();
 
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    public TreeNode lowestCommonAncestor1(TreeNode root, TreeNode p, TreeNode q) {
         getPathOf(root, p, q);
         List<TreeNode> path1 = paths.get(0);
         List<TreeNode> path2 = paths.get(1);
@@ -38,12 +38,44 @@ public class Solution236 {
         path.remove(path.size() - 1);
     }
 
+
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null) return null;
+        if (root == p || root == q) {
+            // 自己是自己的祖先
+            return root;
+        }
+
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+
+        if (left != null && right != null) {
+            return root;
+        } else if (left != null) {
+            return left;
+        } else if (right != null) {
+            return right;
+        } else {
+            return null;
+        }
+    }
+
+    public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null || root == p || root == q) return root; // return value = null or p or q
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+        if (left == null) return right;
+        if (right == null) return left;
+        return root;
+    }
+
     public static void main(String[] args) {
         TreeNode root = new TreeNode(new Integer[]{3, 5, 1, 6, 2, 0, 8, null, null, 7, 4});
         TreeNode node5 = root.left;
         TreeNode node4 = root.left.right.right;
+        TreeNode node1 = root.right;
 
-        TreeNode res = new Solution236().lowestCommonAncestor(root, node5, node4);
+        TreeNode res = new Solution236().lowestCommonAncestor2(root, node5, node1);
         System.out.println(res);
     }
 }
