@@ -15,6 +15,7 @@
         <module>HashTable</module>
         <module>String</module>
         <module>StackAndQueue</module>
+        <module>Backtrace</module>
     </modules>
     <groupId>com.lingfenglong</groupId>
     <artifactId>Algorithm-Learning</artifactId>
