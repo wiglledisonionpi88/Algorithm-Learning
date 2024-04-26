@@ -22,7 +22,7 @@ public class Solution17 {
 
     List<String> res = new ArrayList<>();
     StringBuilder path = new StringBuilder();
-    List<Integer> idxs = new ArrayList<>();
+
     public List<String> letterCombinations(String digits) {
         char[] arr = digits.toCharArray();
         helper(arr, 0);
@@ -30,22 +30,21 @@ public class Solution17 {
     }
 
     private void helper(char[] arr, int startIndex) {
-        if (idxs.size() - 1 < startIndex) {
-            idxs.add(0);
-        }
-
+        if (arr.length == 0) return;
         if (startIndex >= arr.length) {
             res.add(path.toString());
             return;
         }
-
-        for (int i = startIndex; i < arr.length; i++) {
-            path.append(table[idxs.get(i)]);
-            idxs.set(i, idxs.get(i) + 1);
-            helper(arr, i + 1);
+        for (char ch : table[arr[startIndex] - '0']) {
+            path.append(ch);
+            helper(arr, startIndex + 1);
             path.deleteCharAt(path.length() - 1);
         }
     }
 
+    public static void main(String[] args) {
+        List<String> res = new Solution17().letterCombinations("234");
+        System.out.println(res);
+    }
 
 }
